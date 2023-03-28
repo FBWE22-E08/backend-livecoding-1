@@ -1,6 +1,7 @@
 import axios from "axios";
+import dotenv from "dotenv";
 
-process.env.SECRET_KEY = "1234567xxx";
+dotenv.config();
 
 console.log(process.env);
 
