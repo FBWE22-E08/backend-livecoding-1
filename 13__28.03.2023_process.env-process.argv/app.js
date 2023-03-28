@@ -3,7 +3,15 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-console.log(process.env);
+// environment variables
+// console.log(process.env);
+
+// cli arguments
+// cli arguments are all strings
+// node app.js 4989rw8948509
+const [, , secretKey] = process.argv;
+
+console.log(`This is secret key: ${secretKey}`);
 
 try {
   const data = await axios(
