@@ -14,7 +14,7 @@ app.get("/account", (request, response) => {
 });
 
 // here username is a route parameters
-app.post("/login/:username", (request, response) => {
+app.post("/login/:username/:password", (request, response) => {
   console.log(request.params.username);
 
   response.send(`Your username is: ${request.params.username}`);
