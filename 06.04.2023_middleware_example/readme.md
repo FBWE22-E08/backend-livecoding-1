@@ -14,7 +14,9 @@ We built middleware functions for:
 
  ```` javascript
 export const middleware = (req, res, next) => {
+ //... some code 
 
+   next(); //allows us to continue to the next function.
 }
  ````
 
