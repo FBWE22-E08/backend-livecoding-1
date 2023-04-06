@@ -7,7 +7,7 @@ You can find the middleware functions in the folder `/middleware`
 We built middleware functions for:
  - Logging : `logging.js`
  - Authenticating user : `authenticateUser.js`
- - Checking valid ID of user : `validityCheck.js`. 
+ - Checking valid ID of path : `validityCheck.js`. 
 
 
  Structure of middleware function: 
