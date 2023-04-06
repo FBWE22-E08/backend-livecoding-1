@@ -1,25 +1,36 @@
-## Routing + usage of controller methods
-In this example we are building an application that exposes teas and users. 
+## Middleware 
 
-Notice the folder structure: 
+We addded middleware functions to our express application. 
 
-### Routes
-This is where all our routes are located (teaRoutes & userRoutes).
-In routes we write our route declarations.
+You can find the middleware functions in the folder `/middleware`
 
-### Controllers
-This is where all our controllers are located (teaController, userController)
-In controllers we write our process logic. 
+We built middleware functions for:
+ - Logging : `logging.js`
+ - Authenticating user : `authenticateUser.js`
+ - Checking valid ID of user : `validityCheck.js`. 
 
-Notice the naming of both types of files.
 
-### Server.js
-Inside server.js we place our server configuration. We register our two router modules: 
+ Structure of middleware function: 
 
-```` javascript
-//configure routes
-app.use('/api/teas',teaRoutes);
-app.use('/api/users', userRoutes);
+ ```` javascript
+export const middleware = (req, res, next) => {
+
+}
+ ````
+
+The middleware function can be applied within the route itself as follows: 
+
+ ```` javascript
+router.get('/endpoint', middleware, endpointFunction);
+ ````
+
+Or we can also apply it for the full router and all its endpoints using: 
+
+ ```` javascript
+router.use(middleware);
 ````
 
-In the above code sample you can see the first router module can be accessed through `http://localhost:3000/api/teas`. The other router module can be accessed through `http://localhost:3000/api/users`.
+Take a look inside `logging.js`. Notice that two middleware functions can be combined using an array: 
+ ```` javascript
+export const logCombination = [logging,loggingtime];
+````
