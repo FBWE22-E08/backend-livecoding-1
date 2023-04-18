@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Form.module.css";
 
 export default function Form() {
   const handleSubmit = async (event) => {
@@ -21,7 +22,7 @@ export default function Form() {
   return (
     <>
       <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.registrationForm} onSubmit={handleSubmit}>
         <label>
           Email
           <input name="email" type="email" required={true} />
@@ -29,6 +30,18 @@ export default function Form() {
         <label>
           Name
           <input name="name" type="text" />
+        </label>
+        <label>
+          Street Name
+          <input name="street_name" type="text" required={true} />
+        </label>
+        <label>
+          Street Number
+          <input name="street_number" type="number" required={true} />
+        </label>
+        <label>
+          Post code
+          <input name="post_code" type="number" required={true} />
         </label>
         <label>
           Password

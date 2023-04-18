@@ -1,0 +1,15 @@
+.registrationForm {
+  display: block;
+  margin: 0 auto;
+  width: 40vw;
+}
+
+.registrationForm label {
+  display: block;
+  border: 2px solid gray;
+  background-color: aliceblue;
+  border-radius: 10px;
+  width: 40vw;
+  height: 50px;
+  margin: 10px;
+}
