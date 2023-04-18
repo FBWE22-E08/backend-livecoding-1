@@ -13,7 +13,10 @@ export default function Form() {
     };
 
     try {
-      await fetch("", {});
+      await fetch("http://localhost:4000/api/register", {
+        method: "POST",
+        body: data,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -37,7 +40,7 @@ export default function Form() {
         </label>
         <label>
           Street Number
-          <input name="street_number" type="number" required={true} />
+          <input name="street_number" required={true} />
         </label>
         <label>
           Post code
