@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import styles from "./Form.module.css";
 
@@ -13,10 +14,15 @@ export default function Form() {
     };
 
     try {
-      await fetch("http://localhost:4000/api/register", {
-        method: "POST",
-        body: data,
-      });
+      await axios.post("http://localhost:4000/api/register", data);
+
+      // await fetch("http://localhost:4000/api/register", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(data),
+      // });
     } catch (error) {
       console.log(error);
     }
