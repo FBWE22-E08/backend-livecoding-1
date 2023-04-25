@@ -2,7 +2,6 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import guitarRoute from "./routes/guitar.js";
-import { Guitar } from "./models/Guitar.js";
 
 const app = express();
 dotenv.config();

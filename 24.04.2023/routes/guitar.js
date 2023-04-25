@@ -1,5 +1,7 @@
 import express from "express";
 
+import { Guitar } from "./models/Guitar.js";
+
 const router = express.Router();
 
 router.post("/create", (request, response) => {
