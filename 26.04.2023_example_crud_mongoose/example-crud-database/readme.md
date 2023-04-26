@@ -2,10 +2,13 @@
 In this project we're reviewing CRUD operations in relation to mongoose. 
 
 ## Get started 
-To get started run the below commands in your terminal 
 
-Install your modules:
-> `npm i` 
+1. Add a `.env` file in your root of the project and complete the missing parts. You can use `.env.example` as a template. 
 
-Run the server: 
-> `npm run dev`
+2. Run the below commands in your terminal :
+
+    Install your modules:
+    > `npm i` 
+
+    Run the server: 
+    > `npm run dev`
