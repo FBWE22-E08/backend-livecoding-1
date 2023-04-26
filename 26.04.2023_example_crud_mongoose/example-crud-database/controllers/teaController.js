@@ -33,6 +33,18 @@ export const getTeaById = async(req, res) => {
 }
 
 /**
+ * Controller method to get all teas by category
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+export const getTeaByCategory = async(req, res) => {
+    const teas = await Tea.find({category:req.params.category});
+
+    return res.status(StatusCodes.OK).json(teas);
+}
+
+/**
  * Controller method to create a new tea
  * @param {*} req 
  * @param {*} res 
@@ -79,4 +91,62 @@ export const updateTea = async(req, res) => {
     }
 }
 
-export default {getListOfTeas, createTea, getTeaById, updateTea}
+/**
+ * Controller function to update a tea 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+export const updateTeaDescriptionByName = async(req, res) => {
+    try {
+        const tea = await Tea.findOneAndUpdate({name:req.params.name},{description:req.body.description},{new:true});
+
+        if(!tea){
+            return res.status(StatusCodes.NOT_FOUND).json("Tea not found");
+        }
+
+        return res.status(StatusCodes.OK).json({message:'Tea updated', updatedTea:tea})
+    } catch (error) {
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({message:'Error happened', error:error.toString()})
+    }
+}
+
+
+/**
+ * Delete tea by id 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+export const deleteTeaById = async(req, res) => {
+    try {
+        const tea = await Tea.findByIdAndDelete(req.params.id);
+
+        if(!tea){
+            return res.status(StatusCodes.NOT_FOUND).json("Tea not found");
+        }
+
+        return res.status(StatusCodes.OK).json({message:'Tea deleted', deletedTea:tea})
+    } catch (error) {
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({message:'Error happened', error:error.toString()})
+    }
+}
+
+/**
+ * Delete tea by id 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+export const deleteTeasByCategory = async(req, res) => {
+    try {
+        const deleteResult = await Tea.deleteMany({category:req.params.category})
+
+        return res.status(StatusCodes.OK).json({message:'Teas deleted', deleteResult:deleteResult})
+    } catch (error) {
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({message:'Error happened', error:error.toString()})
+    }
+}
+
+
+export default {getListOfTeas, createTea, getTeaById, updateTea, deleteTeaById, updateTeaDescriptionByName, deleteTeasByCategory}
