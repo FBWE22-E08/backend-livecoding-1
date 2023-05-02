@@ -10,8 +10,7 @@ import mongoose from "mongoose";
 //     }
 // }
 
-// 2. nested subdocument
-// The simplest type of subdocument
+// 2. single nested subdocument
 const timestampSchema = new mongoose.Schema({
   dateCreated: { type: Date },
   dateUpdated: { type: Date },
