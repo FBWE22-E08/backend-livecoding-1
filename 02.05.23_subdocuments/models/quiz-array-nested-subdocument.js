@@ -47,3 +47,14 @@ const quizSchema = new mongoose.Schema({
   },
   questions: [questionSchema],
 });
+
+// MongoDB renames the collection based on the noun that you use
+// It turns it into the plural form
+// quiz ==> quizzes
+// customer ==> customers
+// order ==> orders
+// guitar ==> guitars
+const Quiz = mongoose.model("quiz", quizSchema);
+// const Quiz = mongoose.model("quiz", quizSchema, "quiz"); // force mongoose to use the word "quiz"
+
+export default Quiz;
