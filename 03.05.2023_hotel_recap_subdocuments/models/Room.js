@@ -12,8 +12,3 @@ export const roomSchema = new Schema({
     avgRating:{type:Number, min:1, max:10}
 });
 
-//pricecollection hasdiscount 
-
-// room id :1   from 3rd may til 7th, 15 euro instead 30
-// 
-
